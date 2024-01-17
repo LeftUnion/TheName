@@ -1,5 +1,5 @@
 version: "3"
-name: SortTheName
+# name: "theName"
 services:
 
 # Балансировщик 
@@ -12,35 +12,17 @@ services:
     ports:
       - 3000:80
     depends_on:
-      - nginx-web
+      - TheNameService
 
   TheNameService:
     build: 
-      context: ../microservices/authentication
+      context: ../service/TheName
       dockerfile: ./build/Dockerfile
-    volumes:
-      - ./volumes/configs/server.yaml:/app/server.yaml
     environment:
-      ADMIN_EMAIL: ${ADMIN_EMAIL}
-      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
-
-      SENIOR_REFEREE_PIN: ${SENIOR_REFEREE_PIN}
-      REFEREE_PIN: ${REFEREE_PIN}
-      SERVER_PORT: 9999
-      SERVER_HOST: 0.0.0.0
-      DB_HOST: database
-      DB_PORT: 5432
-      DB_NAME: eurobot
-      DB_USER: ${DB_USER}
-      DB_PASSWORD: ${DB_PASSWORD}      
-      DB_SSL: disable
-
-      PRIVATE_KEY: ${RS256_PRIVATE_KEY}
-      PUBLIC_KEY: ${RS256_PUBLIC_KEY}
-    
+      TODO: 123    
     depends_on: 
-      alembic:
-        condition: service_completed_successfully
+      database:
+        condition: service_healthy
 
   database:
     image: postgres:alpine
@@ -49,7 +31,7 @@ services:
       - ./volumes/database/postgres-data:/var/lib/postgresql/data
       - ../migrations/init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
-      POSTGRES_DB: eurobot
+      POSTGRES_DB: test
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     healthcheck:      
