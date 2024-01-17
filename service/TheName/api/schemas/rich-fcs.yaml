@@ -1,0 +1,38 @@
+type: object
+description: Фамилия, Имя и Отчество
+required:
+  - name
+  - surname
+  - age
+  - sex
+  - nation
+properties:
+  id:
+    description: уникальный идентификатор
+    type: string
+    example: 55
+  name:
+    description: Имя
+    type: string
+    example: Dmitriy
+  surname:
+    description: Фамилия
+    type: string
+    example: Ushakov
+  patronymic:
+    description: Отчество, если есит
+    type: string
+    example: Vasilevich
+    nullable: true
+  age:
+    description: Наиболее вероятный возраст человека 
+    type: string
+    example: 65
+  sex:
+    description: Наиболее вероятный пол человека
+    type: string
+    example: male
+  nation:
+    description: Наиболее вероятная национальность человека
+    type: string
+    example: UA

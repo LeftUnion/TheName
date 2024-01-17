@@ -1,0 +1,97 @@
+get: 
+  summary: Получение информации о людях
+  security: 
+    -  {}
+  operationId: GetHumans
+  description: |
+    Получение обогащённой информации о людях по фильтрам: имя, фамилия, отчество (если есть), возраст, пол, национальность
+  tags: 
+    - Обогатитель
+  parameters: 
+    - $ref: ../parameters/query/human.yaml
+    - $ref: ../parameters/query/limit.yaml
+    - $ref: ../parameters/query/page.yaml
+    - $ref: ../parameters/query/sort.yaml
+  responses: 
+    '200':
+      description: | 
+        Обогащённая информация о людях получена
+      content: 
+        application/json:
+          schema: 
+            $ref: ../schemas/rich-fcs_array.yaml
+    '400':
+      $ref: ../responses/badRequest.yaml
+    '500':
+      $ref: ../responses/internalServer.yaml
+
+delete: 
+  summary: Удаление информации о людях
+  security: 
+    -  {}
+  operationId: DeleteHumans
+  description: |
+    Удаление информации о людях по их уникальным идентификаторам (id)
+  tags: 
+    - Обогатитель
+  parameters: 
+    - $ref: ../parameters/query/humanId_array.yaml
+  responses: 
+    '200':
+      description: | 
+        Информация о людях успешно удалена
+    '400':
+      $ref: ../responses/badRequest.yaml
+    '500':
+      $ref: ../responses/internalServer.yaml
+
+put: 
+  summary: Обновление информации о людях
+  security: 
+    -  {}
+  operationId: UpdateHumans
+  description: |
+    Обновление информации о людях по их уникальным идентификаторам (id)
+  tags: 
+    - Обогатитель
+  requestBody: 
+    content: 
+      application/json:
+        schema: 
+          $ref: ../schemas/fcs.yaml
+  responses: 
+    '200':
+      description: | 
+        Информация о людях успешно обновлена
+    '400':
+      $ref: ../responses/badRequest.yaml
+    '500':
+      $ref: ../responses/internalServer.yaml 
+
+post: 
+  summary: Создание информации о людях
+  security: 
+    -  {}
+  operationId: AddHumans
+  description: |
+    Создание информации о людях
+  tags: 
+    - Обогатитель
+  requestBody: 
+    content: 
+      application/json:
+        schema: 
+          $ref: ../schemas/fcs_array.yaml
+  responses: 
+    '200':
+      description: | 
+        Информация о людях успешно создана
+    '400':
+      $ref: ../responses/badRequest.yaml
+    '500':
+      $ref: ../responses/internalServer.yaml
+  
+  
+  
+      
+  

@@ -1,0 +1,6 @@
+name: fields
+in: query
+style: deepObject
+allowReserved: true
+schema:
+   $ref: ../../schemas/rich-fcs.yaml

@@ -1,0 +1,13 @@
+name: sort
+in: query
+schema:
+  type: array
+  items:
+    type: string
+    enum:
+      - name
+      - surname
+      - patronymic
+      - age
+      - sex
+      - nation
