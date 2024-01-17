@@ -1,0 +1,21 @@
+version: 3
+
+dotenv: ['.env']
+
+includes:
+  api:
+    taskfile: ./service/TheName/api/Taskfile.api.yaml
+  # build:
+    # taskfile: ./service/TheName/build/Taskfile.build.yaml
+
+tasks:
+  default:
+    desc: Список задач
+    cmds:
+      - task --list
+  run:
+    desc: Запуск программы
+    cmds:
+      - ./build/auth
+    deps:
+      - build:build

@@ -1,0 +1,111 @@
+openapi: '3.0.2'
+info: 
+  title: TheName API
+  version: '1.0'
+  x-logo:
+    url: 'https://i.ytimg.com/vi/Hg_gseyLUo8/maxresdefault.jpg'
+    altText: TheName logo
+  contact:
+    name: Разработчик API
+    email: LeftUnion@yandex.ru
+
+  
+servers:
+  - url: https://name.server.ru
+    description: сервис обогащения ФИО
+
+# TODO OTHERS
+
+tags:
+  - name: Обогатитель
+    description: Обогащение Фамилия, Имени и Отчества человека - национальностью, полом и возрастом
+
+# ++
+paths:
+  /api/humans:
+    post: 
+      tags:
+        - Обогатитель
+      security: 
+        -  {}
+      summary: Отправка данных
+      description: Отправка ФИО на сервер фывыфв фывыфвыф
+      operationId: AddHumans
+      requestBody: 
+        content: 
+          application/json:
+            schema: 
+              $ref: "#/components/schemas/FCs"
+      responses: 
+        200: 
+          $ref: "#/components/responses/200"
+        400:
+          $ref: "#/components/responses/400"
+        
+
+        
+  # /api/humans/{human_id}:
+  #   post: 
+  #     responses:   
+  #   put: 
+  #     responses: 
+  #   get: 
+  #     responses: 
+  #   delete: 
+  #     responses: 
+      
+
+components:  
+  responses:
+    200:
+      description: ОК
+    201:
+      description: Создан
+      content: 
+        application/json:
+          schema:
+            type: object
+            description: сообщение
+            required:
+              - message
+            properties:
+              message:
+                description: сообщение
+                type: string
+                example: "Создан"
+            readOnly: true  
+    400:
+      description: Плохой запрос
+      content:
+        application/json:
+          schema:
+            type: object
+            description: сообщение
+            required:
+              - message
+            properties:
+              message:
+                description: сообщение
+                type: string
+                example: неверный запрос
+            readOnly: true    
+  schemas:
+    FCs:
+      type: object
+      description: Фамилия, Имя и Отчество
+      required:
+        - name
+        - surname
+      properties:
+        name:
+          description: Имя
+          type: string
+          example: Dmitriy
+        surname:
+          description: Фамилия
+          type: string
+          example: Ushakov
+        patronymic:
+          description: Отчество, если есит
+          type: string
+          example: Vasilevich
