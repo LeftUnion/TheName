@@ -1,4 +1,4 @@
-name: id's
+name: ids
 in: query
 description: |
   Уникальные идентификаторы людей для удаления
@@ -6,4 +6,4 @@ required: true
 schema:
   type: array
   items: 
-    type: string
+    type: integer

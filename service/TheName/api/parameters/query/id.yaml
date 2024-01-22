@@ -1,0 +1,6 @@
+name: id
+in: query
+description: |
+  Возраст
+schema:
+  type: integer

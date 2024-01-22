@@ -1,7 +1,0 @@
-name: page
-in: query
-description: |
-  Номер страницы
-required: true
-schema:
-  type: integer

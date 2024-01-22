@@ -9,7 +9,7 @@ required:
 properties:
   id:
     description: уникальный идентификатор
-    type: string
+    type: integer
     example: 55
   name:
     description: Имя

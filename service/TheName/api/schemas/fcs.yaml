@@ -6,7 +6,7 @@ required:
 properties:
   id:
     description: Уникальный идентификатор
-    type: string
+    type: integer
     example: 56
   name:
     description: Имя

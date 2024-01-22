@@ -1,0 +1,6 @@
+name: sort_scale
+in: query
+description: |
+  сортировать по
+schema:
+  type: string

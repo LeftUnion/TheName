@@ -1,8 +1,9 @@
-openapi: '3.0.2'
+openapi: "3.0.0"
 info: 
   version: '1.0.0'
   title: TheName API
   description: TODO
+    
   x-logo:
     url: 'https://i.ytimg.com/vi/Hg_gseyLUo8/maxresdefault.jpg'
     altText: TheName logo
@@ -18,18 +19,11 @@ tags:
   - name: Обогатитель
     description: Обогащение Фамилия, Имени и Отчества человека - национальностью, полом и возрастом.
 
-# ++
 paths:
   /humans:
-    $ref: ./resources/humans.yaml
+    $ref: "./resources/humans.yaml"
   /humans/{humanId}:
-    $ref: ./resources/human.yaml
+    $ref: "./resources/human.yaml"
+      
+      
 
-components:
-  parameters:
-    $ref: "./parameters/_index.yaml"
-  schemas:
-    $ref: "./schemas/_index.yaml"
-  responses:
-    $ref: "./responses/_index.yaml"
-    

@@ -1,0 +1,6 @@
+name: patronymic
+in: query
+description: |
+  отчество
+schema:
+  type: string

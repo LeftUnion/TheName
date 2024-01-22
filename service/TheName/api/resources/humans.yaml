@@ -7,19 +7,21 @@ get:
     Получение обогащённой информации о людях по фильтрам: имя, фамилия, отчество (если есть), возраст, пол, национальность
   tags: 
     - Обогатитель
-  parameters: 
-    - $ref: ../parameters/query/human.yaml
-    - $ref: ../parameters/query/limit.yaml
-    - $ref: ../parameters/query/page.yaml
-    - $ref: ../parameters/query/sort.yaml
+  parameters:
+    - $ref: ../parameters/query/limit.yaml 
+    - $ref: ../parameters/query/offset.yaml
+    - $ref: ../parameters/query/id.yaml
+    - $ref: ../parameters/query/name.yaml
+    - $ref: ../parameters/query/surname.yaml
+    - $ref: ../parameters/query/patronymic.yaml
+    - $ref: ../parameters/query/age.yaml
+    - $ref: ../parameters/query/sex.yaml
+    - $ref: ../parameters/query/nation.yaml
+    - $ref: ../parameters/query/sort_by.yaml
+    - $ref: ../parameters/query/sort_scale.yaml
   responses: 
     '200':
-      description: | 
-        Обогащённая информация о людях получена
-      content: 
-        application/json:
-          schema: 
-            $ref: ../schemas/rich-fcs_array.yaml
+      $ref: ../responses/paging.yaml
     '400':
       $ref: ../responses/badRequest.yaml
     '500':
@@ -58,7 +60,7 @@ put:
     content: 
       application/json:
         schema: 
-          $ref: ../schemas/fcs.yaml
+          $ref: ../schemas/fcs_array.yaml
   responses: 
     '200':
       description: | 
@@ -81,7 +83,7 @@ post:
     content: 
       application/json:
         schema: 
-          $ref: ../schemas/fcs_array.yaml
+          $ref: ../schemas/post_fcs_array.yaml
   responses: 
     '200':
       description: | 
