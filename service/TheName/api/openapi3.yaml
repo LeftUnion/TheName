@@ -1,0 +1,29 @@
+openapi: "3.0.0"
+info: 
+  version: '1.0.0'
+  title: TheName API
+  description: TODO
+    
+  x-logo:
+    url: 'https://i.ytimg.com/vi/Hg_gseyLUo8/maxresdefault.jpg'
+    altText: TheName logo
+  contact:
+    name: Разработчик API
+    email: LeftUnion@yandex.ru
+
+servers:
+  - url: https://name.server.ru
+    description: Сервис обогащения ФИО.
+
+tags:
+  - name: Обогатитель
+    description: Обогащение Фамилия, Имени и Отчества человека - национальностью, полом и возрастом.
+
+paths:
+  /humans:
+    $ref: "./resources/humans.yaml"
+  /humans/{humanId}:
+    $ref: "./resources/human.yaml"
+      
+      
+

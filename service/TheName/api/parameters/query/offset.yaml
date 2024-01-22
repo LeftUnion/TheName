@@ -1,0 +1,6 @@
+name: offset
+in: query
+description: |
+  Выборка с n-ого
+schema:
+  type: integer

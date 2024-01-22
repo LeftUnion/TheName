@@ -1,0 +1,7 @@
+name: humanId
+in: path
+required: true
+description: |
+  id человека
+schema:
+  type: integer

@@ -1,0 +1,15 @@
+# Path.
+humanId:
+  $ref: path/humanId.yaml
+
+# Query.
+limit: 
+  $ref: query/limit.yaml
+human:
+  $ref: query/human.yaml
+sort:
+  $ref: query/sort.yaml
+page:
+  $ref: query/page.yaml
+humanId_array:
+  $ref: query/humanId_array.yaml

@@ -1,0 +1,14 @@
+description: Внутренняя ошибка сервера
+content:
+  application/json:
+    schema:
+      type: object
+      description: сообщение
+      required:
+        - message
+      properties:
+        message:
+          description: сообщение
+          type: string
+          example: Упс... Кто-то пролили кофе на серверную стойку =(
+      readOnly: true  

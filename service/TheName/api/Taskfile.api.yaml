@@ -1,0 +1,25 @@
+version: 3
+
+tasks:
+  autogen:
+    desc: Автогенерация OpenAPI 3
+    deps:
+      - oapi3-code-gen
+
+  oapi3-code-gen:
+    desc: Автогенерация интерфейсов OpenAPI 3
+    vars:
+      ROOT_DIR: api
+      INRERFACE_DIR: ../internal/transport
+    cmds:
+      - cd {{.ROOT_DIR}} && oapi-codegen -o {{.INRERFACE_DIR}}/interface.go -old-config-style -package transport -generate chi-server openapi3.yaml
+      - cd {{.ROOT_DIR}} && oapi-codegen -o {{.INRERFACE_DIR}}/types.go -old-config-style -package transport -generate types openapi3.yaml 
+    deps:
+      - oapi3-doc-gen
+
+  oapi3-doc-gen:
+    desc: Автогенерация документации
+    vars:
+      ROOT_DIR: api
+    cmds:
+      - cd {{.ROOT_DIR}} && redoc-cli build openapi3.yaml -o user-doc.html

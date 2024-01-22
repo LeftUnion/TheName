@@ -1,0 +1,6 @@
+name: sort_by
+in: query
+description: |
+  Сортировать по
+schema:
+  type: string
