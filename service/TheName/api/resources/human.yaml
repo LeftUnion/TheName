@@ -1,0 +1,73 @@
+get: 
+  summary: Получение информации о человеке
+  security: 
+    -  {}
+  operationId: GetHuman
+  description: |
+    Получение обогащённой информации о человеке: имя, фамилия, отчество (если есть), возраст, пол, национальность
+  tags: 
+    - Обогатитель
+  parameters: 
+    - $ref: ../parameters/path/humanId.yaml
+  responses: 
+    '200':
+      description: | 
+        Обогащённая информация о человеке получена
+      content: 
+        application/json:
+          schema: 
+            $ref: ../schemas/rich-fcs.yaml
+    '400':
+      $ref: ../responses/badRequest.yaml
+    '500':
+      $ref: ../responses/internalServer.yaml
+
+delete: 
+  summary: Удаление информации о человеке
+  security: 
+    -  {}
+  operationId: DeleteHuman
+  description: |
+    Удаление информации о человеке по его уникальному идентификатору (id)
+  tags: 
+    - Обогатитель
+  parameters: 
+    - $ref: ../parameters/path/humanId.yaml
+  responses: 
+    '200':
+      description: | 
+        Информация о человеке успешно удалена
+    '400':
+      $ref: ../responses/badRequest.yaml
+    '500':
+      $ref: ../responses/internalServer.yaml
+
+put: 
+  summary: Обновление информации о человеке
+  security: 
+    -  {}
+  operationId: UpdateHuman
+  description: |
+    Обновление информации о человеке (ФИО) по его уникальному идентификатору (id)
+  tags: 
+    - Обогатитель
+  parameters: 
+    - $ref: ../parameters/path/humanId.yaml
+  requestBody: 
+    content: 
+      application/json:
+        schema: 
+          $ref: ../schemas/fcs.yaml
+  responses: 
+    '200':
+      description: | 
+        Информация человека успешно обновлена
+    '400':
+      $ref: ../responses/badRequest.yaml
+    '500':
+      $ref: ../responses/internalServer.yaml 
+  
+  
+  
+      
+  

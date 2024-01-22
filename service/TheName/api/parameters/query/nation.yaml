@@ -1,0 +1,6 @@
+name: nation
+in: query
+description: |
+  нация
+schema:
+  type: string

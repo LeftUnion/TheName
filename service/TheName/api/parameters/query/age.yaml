@@ -1,0 +1,6 @@
+name: age
+in: query
+description: |
+  Возраст
+schema:
+  type: integer

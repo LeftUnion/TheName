@@ -1,0 +1,22 @@
+type: object
+description: Фамилия, Имя и Отчество
+required:
+  - name
+  - surname
+properties:
+  id:
+    description: Уникальный идентификатор
+    type: integer
+    example: 56
+  name:
+    description: Имя
+    type: string
+    example: Dmitriy
+  surname:
+    description: Фамилия
+    type: string
+    example: Ushakov
+  patronymic:
+    description: Отчество, если есит
+    type: string
+    example: Vasilevich

@@ -1,0 +1,6 @@
+name: surname
+in: query
+description: |
+  фамилия
+schema:
+  type: string

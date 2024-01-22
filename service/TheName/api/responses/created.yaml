@@ -1,0 +1,14 @@
+description: Создан
+content: 
+  application/json:
+    schema:
+      type: object
+      description: сообщение
+      required:
+        - message
+      properties:
+        message:
+          description: сообщение
+          type: string
+          example: "Создан"
+      readOnly: true 

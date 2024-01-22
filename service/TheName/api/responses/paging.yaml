@@ -1,0 +1,24 @@
+description: | 
+        Обогащённая информация о людях получена
+content: 
+  application/json:
+    schema: 
+      $ref: ../schemas/rich-fcs_array.yaml
+headers:
+  Link:
+    schema:
+      type: string
+    example: "</humans?limit=5&offset=5;rel=next"
+links:
+  next:
+    operationId: getProducts
+    parameters:
+      limit:
+        type: integer
+        example: 6
+      offset:
+        type: integer
+        example: 5
+    server:
+      url: https://localhost:3000
+    description: Link to next page

@@ -1,0 +1,8 @@
+200:
+  $ref: ok.yaml
+201:
+  $ref: created.yaml
+400:
+  $ref: badRequest.yaml
+500:
+  $ref: internalServer.yaml

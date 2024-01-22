@@ -1,0 +1,6 @@
+name: limit
+in: query
+description: |
+  Как много объектов вернуть за один раз
+schema:
+  type: integer
