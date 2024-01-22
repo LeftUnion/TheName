@@ -250,8 +250,8 @@ func (db *Names) GetHumans(params autogen.GetHumansParams) ([]models.Human, erro
 			&human.Surname,
 			&human.Patronymic,
 			&human.Age,
-			&human.Sex,
 			&human.Nation,
+			&human.Sex,
 		)
 		if err != nil {
 			logrus.Errorf("Ошибка чтения человека: %s", err)

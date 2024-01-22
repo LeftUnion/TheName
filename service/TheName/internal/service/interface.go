@@ -3,7 +3,6 @@ package service
 import (
 	"github.com/LeftUnion/theName/service/TheName/dtos"
 	"github.com/LeftUnion/theName/service/TheName/internal/autogen"
-	"github.com/LeftUnion/theName/service/TheName/internal/models"
 )
 
 type IService interface {
@@ -13,7 +12,7 @@ type IService interface {
 	UpdateHuman(human autogen.UpdateHumanJSONBody) error
 
 	// Humans.
-	GetHumans(params autogen.GetHumansParams) ([]models.Human, int, error)
+	GetHumans(params autogen.GetHumansParams) ([]dtos.ResponseRichHuman, int, error)
 	AddHumans(poorHumans autogen.AddHumansJSONBody) error
 	DeleteHumans(ids []int) error
 	UpdateHumans(humans autogen.UpdateHumansJSONBody) error

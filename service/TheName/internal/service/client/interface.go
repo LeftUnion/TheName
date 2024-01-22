@@ -3,7 +3,6 @@ package client
 import (
 	"github.com/LeftUnion/theName/service/TheName/dtos"
 	"github.com/LeftUnion/theName/service/TheName/internal/autogen"
-	"github.com/LeftUnion/theName/service/TheName/internal/models"
 )
 
 type IClient interface {
@@ -16,5 +15,5 @@ type IClient interface {
 	AddHumans(poorHumans autogen.AddHumansJSONBody) error
 	DeleteHumans(ids []int) error
 	UpdateHumans(humans autogen.UpdateHumansJSONBody) error
-	GetHumans(params autogen.GetHumansParams) ([]models.Human, int, error) // return: NextOffset + err
+	GetHumans(params autogen.GetHumansParams) ([]dtos.ResponseRichHuman, int, error) // return: NextOffset + err
 }

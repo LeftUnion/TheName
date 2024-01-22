@@ -42,7 +42,7 @@ func New(db database.IDatabase) IClient {
 	}
 }
 
-func (c *Client) GetHumans(params autogen.GetHumansParams) ([]models.Human, int, error) {
+func (c *Client) GetHumans(params autogen.GetHumansParams) ([]dtos.ResponseRichHuman, int, error) {
 	var (
 		defaultLimit  = 10
 		defautlOffset = 0
@@ -65,7 +65,24 @@ func (c *Client) GetHumans(params autogen.GetHumansParams) ([]models.Human, int,
 		return nil, 0, handleDatabaseErrors(err)
 	}
 
-	return humans, *params.Limit + *params.Offset, nil
+	// Debug.
+	logrus.Debugf("Полученные данные: %+v", humans)
+
+	data := make([]dtos.ResponseRichHuman, 0, *params.Limit)
+
+	for i, human := range humans {
+		var some dtos.ResponseRichHuman
+		some.Id = &humans[i].Id
+		some.Name = human.Name
+		some.Surname = human.Surname
+		some.Patronymic = human.Patronymic
+		some.Age = human.Age
+		some.Nation = human.Nation
+		some.Sex = human.Sex
+		data = append(data, some)
+	}
+
+	return data, *params.Limit + *params.Offset, nil
 }
 
 func (c *Client) UpdateHumans(humans autogen.UpdateHumansJSONBody) error {
